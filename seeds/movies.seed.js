@@ -1,3 +1,10 @@
+// seeds/movies.seed.js
+const mongoose = require('mongoose');
+const Movie = require('../models/Movie.model');
+
+const MONGODB_URI = 'mongodb://127.0.0.1:27017/lab-express-cinema';
+
+
 const movies = [
     {
       title: "A Wrinkle in Time",
@@ -81,9 +88,16 @@ const movies = [
     }
   ];
 
-
-// Add here the script that will be run to actually seed the database (feel free to refer to the previous lesson)
-
-  
-
-// ... your code here
+   mongoose
+  .connect(MONGODB_URI)
+  .then(() => {
+    console.log('Connected to MongoDB');
+    return Movie.insertMany(movies);
+  })
+  .then((insertedMovies) => {
+    console.log(`Inserted ${insertedMovies.length} movies`);
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB', err);
+  });

@@ -1,0 +1,27 @@
+<!-- views/movieDetails.hbs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{movie.title}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="group-details">
+    <img src="{{movie.image}}" class="img-fluid" alt="{{movie.title}}">
+    <div class="text-details">
+ <h1>{{movie.title}}</h1>
+    <h3>Directed by: {{movie.director}}</h3>
+    <h4>Stars: {{movie.stars}}</h4>
+    <p>{{movie.description}}</p>
+    <h5>Showtimes: {{movie.showtimes}}</h5>
+    <a href="/movies" class="btndetails ">Back to movies</a>
+    </div>
+     
+    </div>
+   
+  </div>
+</body>
+</html>

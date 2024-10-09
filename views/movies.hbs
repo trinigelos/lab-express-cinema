@@ -1,0 +1,26 @@
+<!-- views/movies.hbs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="group-movies">
+    <div class="row">
+      {{#each movies}}
+        <div class="movie-card col-md-4">
+          <h2>{{this.title}}</h2>
+          <img src="{{this.image}}" class="img-fluid" alt="{{this.title}}">
+          <a href="/movies/{{this._id}}" class="btn btn-info">See More</a>
+        </div>
+      {{/each}}
+    </div>
+    </div>
+   
+  </div>
+</body>
+</html>
